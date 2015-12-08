@@ -20,7 +20,7 @@ var collapse = require('collapse-whitespace');
 
 var _window = (typeof window !== 'undefined' ? window : this), _document;
 if (typeof document === 'undefined') {
-  _document = require('jsdom').jsdom();
+  _document = require('jsdom-no-contextify').jsdom();
 }
 else {
   _document = document;
