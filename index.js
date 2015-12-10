@@ -246,7 +246,10 @@ toMarkdown = function (input, options) {
   if (typeof input !== 'string') {
     throw new TypeError(input + ' is not a string');
   }
-
+  
+  // Escape potential ol triggers		
+  input = input.replace(/(\d+)\. /g, '$1\\. ');
+  
   var clone = htmlToDom(input).body,
       nodes = bfsOrder(clone),
       output;
